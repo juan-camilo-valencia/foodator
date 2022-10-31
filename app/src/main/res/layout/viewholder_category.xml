@@ -5,7 +5,7 @@
     android:layout_width="75dp"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:background="@drawable/cat_background">
+    android:background="@drawable/cat_background1">
 
     <ImageView
         android:id="@+id/categoryPic"
@@ -25,7 +25,7 @@
     <TextView
         android:id="@+id/categoryName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="title"
         android:textSize="16sp"
         android:textStyle="bold"

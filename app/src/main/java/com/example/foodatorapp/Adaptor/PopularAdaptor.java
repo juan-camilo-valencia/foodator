@@ -1,30 +1,30 @@
 package com.example.foodatorapp.Adaptor;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.ImageView;
+        import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.RecyclerView;
+        import androidx.annotation.NonNull;
+        import androidx.constraintlayout.widget.ConstraintLayout;
+        import androidx.core.content.ContextCompat;
+        import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.foodatorapp.Domain.CategoryDomain;
-import com.example.foodatorapp.R;
+        import com.bumptech.glide.Glide;
+        import com.example.foodatorapp.Domain.CategoryDomain;
+        import com.example.foodatorapp.Domain.FoodDomain;
+        import com.example.foodatorapp.R;
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
 
-public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHolder>{
-    ArrayList<CategoryDomain>categoryDomains;
+public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHolder>{
+    ArrayList<FoodDomain> categoryFood;
 
-    public CategoryAdaptor(ArrayList<CategoryDomain> categoryDomains) {
-        this.categoryDomains = categoryDomains;
+    public PopularAdaptor(ArrayList<FoodDomain> categoryFood) {
+        this.categoryFood = categoryFood;
     }
 
-    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate =
@@ -33,8 +33,8 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdaptor.ViewHolder holder, int position) {
-        holder.categoryName.setText(categoryDomains.get(position).getTitle());
+    public void onBindViewHolder(@NonNull PopularAdaptor.ViewHolder holder, int position) {
+        holder.categoryName.setText(categoryFood.get(position).getTitle());
         String picUrl = "";
         switch (position){
             case 0: {
@@ -70,7 +70,7 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
 
     @Override
     public int getItemCount() {
-        return categoryDomains.size();
+        return categoryFood.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
