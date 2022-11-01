@@ -4,21 +4,21 @@ public class FoodDomain {
     private String title;
     private String pic;
     private String description;
-    private Double fee;
+    private Double free;
     private int numberInCart;
 
-    public FoodDomain(String title, String pic, String description, Double fee) {
+    public FoodDomain(String title, String pic, String description, Double free) {
         this.title = title;
         this.pic = pic;
         this.description = description;
-        this.fee = fee;
+        this.free = free;
     }
 
-    public FoodDomain(String title, String pic, String description, Double fee, int numberInCart) {
+    public FoodDomain(String title, String pic, String description, Double free, int numberInCart) {
         this.title = title;
         this.pic = pic;
         this.description = description;
-        this.fee = fee;
+        this.free = free;
         this.numberInCart = numberInCart;
     }
 
@@ -46,12 +46,12 @@ public class FoodDomain {
         this.description = description;
     }
 
-    public Double getFee() {
-        return fee;
+    public Double getFree() {
+        return free;
     }
 
-    public void setFee(Double fee) {
-        this.fee = fee;
+    public void setFree(Double free) {
+        this.free = free;
     }
 
     public int getNumberInCart() {

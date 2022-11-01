@@ -1,5 +1,6 @@
 package com.example.foodatorapp.Adaptor;
 
+        import android.content.Intent;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -10,6 +11,7 @@ package com.example.foodatorapp.Adaptor;
         import androidx.recyclerview.widget.RecyclerView;
 
         import com.bumptech.glide.Glide;
+        import com.example.foodatorapp.Activity.ShowDetailActivity;
         import com.example.foodatorapp.Domain.FoodDomain;
         import com.example.foodatorapp.R;
 
@@ -33,13 +35,22 @@ public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHold
     @Override
     public void onBindViewHolder(@NonNull PopularAdaptor.ViewHolder holder, int position) {
         holder.title.setText(popularFood.get(position).getTitle());
-        holder.free.setText(String.valueOf(popularFood.get(position).getFee()));
+        holder.free.setText(String.valueOf(popularFood.get(position).getFree()));
 
         int drawableResourceId =
                 holder.itemView.getContext().getResources().getIdentifier(popularFood.get(position).getPic(),
                         "drawable", holder.itemView.getContext().getPackageName());
 
         Glide.with(holder.itemView.getContext()).load(drawableResourceId).into(holder.pic);
+
+        holder.addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
+                intent.putExtra("object", (Parcelable) popularFood.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -54,7 +65,7 @@ public class PopularAdaptor extends RecyclerView.Adapter<PopularAdaptor.ViewHold
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
-            fee = itemView.findViewById(R.id.free);
+            free = itemView.findViewById(R.id.free);
             pic = itemView.findViewById(R.id.pic);
             addBtn = itemView.findViewById(R.id.addBtn);
         }
