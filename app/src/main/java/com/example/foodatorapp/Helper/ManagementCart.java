@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.foodatorapp.Domain.FoodDomain;
+import com.example.foodatorapp.Interface.ChangeNumberItemsListener;
 
 import java.util.ArrayList;
 
@@ -40,5 +41,32 @@ public class ManagementCart {
 
     public ArrayList<FoodDomain> getListCart(){
         return tinyDB.getListObject("CartList");
+    }
+
+    public void plusNumberFood(ArrayList<FoodDomain> listfood, int position,
+                               ChangeNumberItemsListener changeNumberItemsListener){
+        listfood.get(position).setNumberInCart(listfood.get(position).getNumberInCart() + 1);
+        tinyDB.putListObject("CartList", listfood);
+        changeNumberItemsListener.changed();
+    }
+
+    public void minusNumberFood(ArrayList<FoodDomain> listfood, int position,
+                                ChangeNumberItemsListener changeNumberItemsListener){
+        if (listfood.get(position).getNumberInCart() == 1){
+            listfood.remove(position);
+        } else {
+            listfood.get(position).setNumberInCart(listfood.get(position).getNumberInCart() - 1);
+        }
+        tinyDB.putListObject("CartList", listfood);
+        changeNumberItemsListener.changed();
+    }
+
+    public Double getTotalFee(){
+        ArrayList<FoodDomain> listfood = getListCart();
+        double fee = 0;
+        for (int i = 0; i < listfood.size(); i++) {
+            fee = fee + (listfood.get(i).getFree() * listfood.get(i).getNumberInCart());
+        }
+        return fee;
     }
 }

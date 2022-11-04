@@ -352,18 +352,19 @@
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#ff5e00"
-                    android:elevation="3dp"
-                    android:src="@drawable/shopping_cart"
-                    app:backgroundTint="#ff5e00"
-                    app:maxImageSize="30dp"
-                    app:tint="#fff"
-                    app:layout_anchor="@id/app_bar">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cartBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#ff5e00"
+            android:elevation="3dp"
+            android:src="@drawable/shopping_cart"
+            app:backgroundTint="#ff5e00"
+            app:layout_anchor="@id/app_bar"
+            app:maxImageSize="30dp"
+            app:tint="#fff">
 
-                </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
